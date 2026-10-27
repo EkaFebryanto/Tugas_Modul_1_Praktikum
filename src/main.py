@@ -54,6 +54,34 @@ def tampilkan_semua():
     console.print(table)
 
 
+def cari_mahasiswa():
+    """Cari mahasiswa berdasarkan NIM dan tampilkan hasilnya."""
+    console.print("\n[bold]Cari Mahasiswa[/]")
+    nim = console.input("  NIM: ").strip()
+    mhs = db.cari(nim)
+    if mhs is None:
+        console.print(f"  [yellow]Mahasiswa dengan NIM {nim} tidak ditemukan.[/]")
+        return
+    table = Table(title="Hasil Pencarian")
+    table.add_column("NIM", style="cyan")
+    table.add_column("Nama")
+    table.add_column("Program Studi")
+    table.add_column("Angkatan", justify="right")
+    table.add_column("IPK", justify="right")
+    table.add_row(mhs.nim, mhs.nama, mhs.program_studi, str(mhs.angkatan), f"{mhs.ipk:.2f}")
+    console.print(table)
+
+
+def hapus_mahasiswa():
+    """Hapus mahasiswa berdasarkan NIM."""
+    console.print("\n[bold]Hapus Mahasiswa[/]")
+    nim = console.input("  NIM: ").strip()
+    if db.hapus(nim):
+        console.print(f"  [green]Berhasil: data NIM {nim} dihapus[/]")
+    else:
+        console.print(f"  [red]Gagal: NIM {nim} tidak ditemukan[/]")
+
+
 def main():
     """Loop utama aplikasi."""
     while True:
@@ -64,9 +92,9 @@ def main():
         elif pilihan == "2":
             tampilkan_semua()
         elif pilihan == "3":
-            pass  # Latihan: implementasi cari
+            cari_mahasiswa()
         elif pilihan == "4":
-            pass  # Latihan: implementasi hapus
+            hapus_mahasiswa()
         elif pilihan == "0":
             console.print("[bold]Sampai jumpa![/]")
             break
