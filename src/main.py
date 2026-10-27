@@ -29,9 +29,9 @@ def tambah_mahasiswa():
     nim = console.input("  NIM: ")
     nama = console.input("  Nama: ")
     prodi = console.input("  Program Studi: ")
-    angkatan = int(console.input("  Angkatan: "))
-    ipk = float(console.input("  IPK: "))
     try:
+        angkatan = int(console.input("  Angkatan: "))
+        ipk = float(console.input("  IPK: "))
         mhs = Mahasiswa(nim, nama, prodi, angkatan, ipk)
         db.tambah(mhs)
         console.print(f"  [green]Berhasil: {nama} ditambahkan[/]")

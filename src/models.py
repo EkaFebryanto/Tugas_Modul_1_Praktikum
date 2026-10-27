@@ -2,6 +2,8 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
 
+MAX_NAMA = 100  # batas panjang nama (karakter)
+
 
 @dataclass
 class Mahasiswa:
@@ -17,8 +19,10 @@ class Mahasiswa:
         """Validasi data setelah inisialisasi."""
         if not self.nim or len(self.nim) < 6:
             raise ValueError(f"NIM tidak valid: {self.nim}")
-        if not self.nama:
+        if not self.nama or not self.nama.strip():
             raise ValueError("Nama tidak boleh kosong")
+        if len(self.nama) > MAX_NAMA:
+            raise ValueError(f"Nama maksimal {MAX_NAMA} karakter")
         if not (0.0 <= self.ipk <= 4.0):
             raise ValueError(f"IPK harus 0.0-4.0, got {self.ipk}")
 
