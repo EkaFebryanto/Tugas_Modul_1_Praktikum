@@ -5,9 +5,9 @@ pada Program Studi Sistem Informasi.
 
 ## Identitas
 
-- Nama: [Nama Lengkap]
-- NIM: [NIM Anda]
-- Kelas: [Kelas Praktikum]
+- Nama: Eka Febryanto
+- NIM: 20241320014
+- Kelas: A1 Sistem Informasi
 
 ## Fitur
 
@@ -26,8 +26,8 @@ pada Program Studi Sistem Informasi.
 ## Instalasi
 
 ```bash
-git clone https://github.com/USERNAME/sim-mahasiswa.git
-cd sim-mahasiswa
+git clone https://github.com/EkaFebryanto/Tugas_Modul_1_Praktikum.git
+cd Tugas_Modul_1_Praktikum
 python3 -m venv venv
 source venv/bin/activate   # Linux/macOS
 # Windows (PowerShell): venv\Scripts\Activate.ps1
@@ -83,9 +83,9 @@ sim-mahasiswa/
 
 ## Setup Checklist
 
-- [x] Python terinstal (versi: 3.12.3)
+- [x] Python terinstal (versi: 3.14.7)
 - [x] Virtual environment dibuat & diaktivasi
-- [ ] Paket terinstal via requirements.txt
+- [x] Paket terinstal via requirements.txt
 - [x] Program berjalan tanpa error
 - [x] Unit test lulus
 - [x] Repositori Git diinisiasi
