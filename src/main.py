@@ -32,6 +32,10 @@ def tambah_mahasiswa():
     try:
         angkatan = int(console.input("  Angkatan: "))
         ipk = float(console.input("  IPK: "))
+    except ValueError:
+        console.print("  [red]Gagal: Angkatan harus bilangan bulat dan IPK harus angka[/]")
+        return
+    try:
         mhs = Mahasiswa(nim, nama, prodi, angkatan, ipk)
         db.tambah(mhs)
         console.print(f"  [green]Berhasil: {nama} ditambahkan[/]")
@@ -89,6 +93,10 @@ def edit_ipk():
     nim = console.input("  NIM: ").strip()
     try:
         ipk_baru = float(console.input("  IPK baru: "))
+    except ValueError:
+        console.print("  [red]Gagal: IPK harus berupa angka[/]")
+        return
+    try:
         if db.edit_ipk(nim, ipk_baru):
             console.print(f"  [green]Berhasil: IPK NIM {nim} diubah menjadi {ipk_baru:.2f}[/]")
         else:
