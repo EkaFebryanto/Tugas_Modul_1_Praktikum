@@ -89,5 +89,5 @@ sim-mahasiswa/
 - [x] Program berjalan tanpa error
 - [x] Unit test lulus
 - [x] Repositori Git diinisiasi
-- [ ] Push ke GitHub berhasil
+- [x] Push ke GitHub berhasil
 - [x] README.md lengkap
