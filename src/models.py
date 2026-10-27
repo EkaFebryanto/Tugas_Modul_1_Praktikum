@@ -38,7 +38,7 @@ class DaftarMahasiswa:
 
     def tambah(self, mhs: Mahasiswa) -> None:
         """Tambah mahasiswa baru (NIM harus unik)."""
-        if self.cari(self.nim):
+        if self.cari(mhs.nim):
             raise ValueError(f"NIM {mhs.nim} sudah terdaftar")
         self.data.append(mhs)
 
