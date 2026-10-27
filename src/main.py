@@ -17,6 +17,7 @@ def tampilkan_menu():
         "2. Tampilkan Semua Mahasiswa\n"
         "3. Cari Mahasiswa (NIM)\n"
         "4. Hapus Mahasiswa\n"
+        "5. Edit IPK Mahasiswa\n"
         "0. Keluar"
     )
     console.print(Panel(menu_text, title="Menu", border_style="cyan"))
@@ -82,11 +83,25 @@ def hapus_mahasiswa():
         console.print(f"  [red]Gagal: NIM {nim} tidak ditemukan[/]")
 
 
+def edit_ipk():
+    """Perbarui IPK mahasiswa berdasarkan NIM (validasi 0.0-4.0)."""
+    console.print("\n[bold]Edit IPK Mahasiswa[/]")
+    nim = console.input("  NIM: ").strip()
+    try:
+        ipk_baru = float(console.input("  IPK baru: "))
+        if db.edit_ipk(nim, ipk_baru):
+            console.print(f"  [green]Berhasil: IPK NIM {nim} diubah menjadi {ipk_baru:.2f}[/]")
+        else:
+            console.print(f"  [red]Gagal: NIM {nim} tidak ditemukan[/]")
+    except ValueError as e:
+        console.print(f"  [red]Gagal: {e}[/]")
+
+
 def main():
     """Loop utama aplikasi."""
     while True:
         tampilkan_menu()
-        pilihan = console.input("\nPilih [0-4]: ")
+        pilihan = console.input("\nPilih [0-5]: ")
         if pilihan == "1":
             tambah_mahasiswa()
         elif pilihan == "2":
@@ -95,6 +110,8 @@ def main():
             cari_mahasiswa()
         elif pilihan == "4":
             hapus_mahasiswa()
+        elif pilihan == "5":
+            edit_ipk()
         elif pilihan == "0":
             console.print("[bold]Sampai jumpa![/]")
             break
